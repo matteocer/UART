@@ -1,0 +1,27 @@
+UART PROTOCOL
+
+- Both reciever and transmitter work at a 9600 baud rate
+- This reciever will only identify that the data is starting
+  and identify when the data stops
+    - Given that the data stops after 8 bits, it will just
+      stop after recieving 8 bits
+
+elements:
+IDLE  -> logic level 1
+START -> logic level 0
+DATA  -> 8 bits of data LSB to MSB
+PARITY ----- NOT USED ---------
+STOP  -> logic level 1 
+
+
+States:
+IDLE -> wait for start bit (0)
+DATA -> data is being sent
+
+
+Pins:
+Transmitter    Reciever
+rx             tx       -NOT USED-
+tx             rx
+clk            clk
+
